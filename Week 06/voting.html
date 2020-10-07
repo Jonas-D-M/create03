@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    .color-alpha-xxx-dark {
+      fill: #3c1651;
+    }
+    .color-alpha-xx-dark {
+      fill: #5c3e6d;
+    }
+    .color-alpha-x-dark {
+      fill: #7b6188;
+    }
+    .color-alpha-dark {
+      fill: #9a86a3;
+    }
+    .color-alpha {
+      fill: #baacc2;
+    }
+    .background {
+      background-color: #eeeef0;
+    }
+    text {
+      font-size: 16px;
+      font-family: 'Roboto';
+      fill: white;
+    }
+
+    @-webkit-keyframes bounceIn {
+      from,
+      20%,
+      40%,
+      60%,
+      80%,
+      to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+
+      0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+      }
+
+      20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+      }
+
+      40% {
+        -webkit-transform: scale3d(0.9, 0.9, 0.9);
+        transform: scale3d(0.9, 0.9, 0.9);
+      }
+
+      60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+      }
+
+      80% {
+        -webkit-transform: scale3d(0.97, 0.97, 0.97);
+        transform: scale3d(0.97, 0.97, 0.97);
+      }
+
+      to {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+      }
+    }
+
+    @keyframes bounceIn {
+      from,
+      20%,
+      40%,
+      60%,
+      80%,
+      to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+
+      0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+      }
+
+      20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+      }
+
+      40% {
+        -webkit-transform: scale3d(0.9, 0.9, 0.9);
+        transform: scale3d(0.9, 0.9, 0.9);
+      }
+
+      60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+      }
+
+      80% {
+        -webkit-transform: scale3d(0.97, 0.97, 0.97);
+        transform: scale3d(0.97, 0.97, 0.97);
+      }
+
+      to {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+      }
+    }
+
+    .bounceIn {
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-name: bounceIn;
+      animation-name: bounceIn;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+  </style>
+  <body>
+    <svg class="background" width="750" height="750" viewBox="0 0 1000 900" preserveAspectRatio="xMinYMid slice">
+      <title>Zomeruur</title>
+      <g class="bounceIn">
+        <circle class="color-alpha-xxx-dark winteruur" cx="100" cy="100" r="100" id="winteruur"></circle>
+        <text x="100" y="100" text-anchor="middle" text-anchor="middle" alignment-baseline="middle">Winteruur</text>
+      </g>
+      <g class="bounceIn">
+        <circle class="color-alpha zomeruur" cx="400" cy="100" r="50" id="zomeruur"></circle>
+        <text x="400" y="100" text-anchor="middle" text-align="baseline">Zomeruur</text>
+      </g>
+      <g class="bounceIn">
+        <circle class="color-alpha-x-dark gelijk" cx="700" cy="100" r="70" id="Gelijk"></circle>
+        <text x="700" y="100" text-anchor="middle" text-align="baseline">Gelijk</text>
+      </g>
+    </svg>
+  </body>
+</html>

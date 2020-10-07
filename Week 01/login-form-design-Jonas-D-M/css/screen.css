@@ -1,0 +1,1042 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+
+@font-face {
+  font-family: 'Inter Web';
+  font-weight: 400;
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter Web';
+  font-weight: 600;
+  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+}
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+  /* colors */
+  --global-color-alpha-ligth: #4f95ff;
+  --global-color-alpha: #3385ff;
+  --global-color-alpha-dark: #2e77e6;
+  --global-color-alpha-x-dark: #1b4186;
+  --global-color-neutral-xx-dark: #4b4c60;
+  --global-color-neutral-xxx-dark: #353743;
+  --global-color-neutral-xxxx-dark: #20223a;
+  --global-color-neutral-base: #757787;
+  --global-color-dark: #606274;
+  --global-color-x-dark: #4b4c60;
+  --global-color-xx-dark: #35374d;
+  --global-color-xxx-dark: #2a2c43;
+  --global-color-xxxx-dark: #20223a;
+
+  --global-borderRadius: 3px;
+  --global-borderWidth: 1px;
+
+  --global-transitionTiming-alpha: 0.1s ease-out;
+
+  --global-baseline: 8px;
+  --global-whitespace: calc(var(--global-baseline) * 3);
+
+  --global-whitespace-xs: calc(var(--global-baseline) * 0.5);
+  --global-whitespace-sm: calc(var(--global-baseline) * 1);
+  --global-whitespace-md: calc(var(--global-baseline) * 2);
+  --global-whitespace-lg: calc(var(--global-baseline) * 4);
+  --global-whitespace-xl: calc(var(--global-whitespace) * 2);
+  --global-whitespace-xxl: calc(var(--global-whitespace) * 3);
+}
+
+/* CSS variables here */
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Inter Web', Helvetica, arial, sans-serif;
+  color: #20223a;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f6fa;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+::-moz-selection {
+  background: #3385ff;
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: #3385ff;
+  color: white;
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 48px;
+  margin: 0 0 24px;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0 0 24px;
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 24px;
+}
+
+ul,
+ol {
+  padding-left: 24px;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: LightGrey;
+  margin: 0 0 24px;
+}
+
+a {
+  color: #3385ff;
+  transition: all 0.1s ease-in-out;
+}
+
+a:visited,
+a:active {
+  color: hsla(216, 80, 100, 0.3);
+}
+
+a:hover,
+a:focus {
+  color: hsla(216, 80, 100, 0.3);
+}
+
+label,
+input {
+  display: block;
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+  position: relative;
+  padding: 24px 24px 0;
+}
+
+.o-row--login {
+  /* stuff here to align the card */
+}
+.o-row--body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+/* size modifiers */
+
+.o-row--lg {
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+
+.o-row--xl {
+  padding-top: 72px;
+  padding-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .o-row {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (min-width: 992px) {
+  .o-row--xl {
+    padding-top: 96px;
+    padding-bottom: 72px;
+  }
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 79.5em; /* 79.5 * 16px = 1272 */
+  width: 100%;
+}
+
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+  position: relative;
+}
+
+.o-section + .o-section {
+  padding-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .o-section--lg + .o-section--lg,
+  .o-section--xl + .o-section--xl {
+    padding-top: 48px;
+  }
+}
+
+@media (min-width: 992px) {
+  .o-section--xl + .o-section--xl {
+    padding-top: 72px;
+  }
+}
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+
+.o-layout {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.o-layout__item {
+  width: 100%;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+  margin: 0 -12px;
+}
+
+.o-layout--gutter > .o-layout__item {
+  padding: 0 12px;
+}
+
+.o-layout--gutter-sm {
+  margin: 0 -6px;
+}
+
+.o-layout--gutter-sm > .o-layout__item {
+  padding: 0 6px;
+}
+
+.o-layout--gutter-lg {
+  margin: 0 -24px;
+}
+
+.o-layout--gutter-lg > .o-layout__item {
+  padding: 0 24px;
+}
+
+.o-layout--gutter-xl {
+  margin: 0 -48px;
+}
+
+.o-layout--gutter-xl > .o-layout__item {
+  padding: 0 48px;
+}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+  justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+  justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+  justify-content: center;
+}
+
+.o-layout--justify-space-around {
+  justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+  justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+
+.o-layout--align-start {
+  align-items: flex-start;
+}
+
+.o-layout--align-end {
+  align-items: flex-end;
+}
+
+.o-layout--align-center {
+  align-items: center;
+}
+
+.o-layout--align-baseline {
+  align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is one than one flex item */
+
+.o-layout--align-content-start {
+  align-content: start;
+}
+
+.o-layout--align-content-end {
+  align-content: end;
+}
+
+.o-layout--align-content-center {
+  align-content: center;
+}
+
+.o-layout--align-content-space-around {
+  align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+  align-content: space-between;
+}
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+  list-style: none;
+  padding: 0;
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-logo {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.c-logo__symbol {
+  height: 100%;
+}
+
+.c-logo__path-1 {
+  fill: #20223a;
+}
+.c-logo__path-2 {
+  fill: #3385ff;
+}
+.c-logo__path-3 {
+  fill: #1b4186;
+}
+
+/*
+    Component: Card
+    ---
+    Card with box shadow
+*/
+
+.c-card {
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.07);
+}
+
+.c-card__body,
+.c-card__footer {
+  padding: 24px;
+}
+
+.c-card__footer {
+  border-top: 1px solid #e2e3e7;
+  color: #757787;
+}
+
+.c-card__title {
+  font-size: 18px;
+}
+
+.c-card__body > *:last-child,
+.c-card__footer > *:last-child,
+.c-card__body > *:last-child > *:last-child,
+.c-card__footer > *:last-child > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 27em) {
+  .c-card__body {
+    padding: 48px;
+  }
+  .c-card__title {
+    margin-bottom: 48px;
+  }
+}
+
+/*
+    Component: Forms
+    ---
+    Everything form related here
+*/
+
+.c-form-field--option {
+  display: flex;
+  align-items: center;
+}
+
+/*
+    Component: Input
+    ---
+    Class to put on all input="text" like form inputs
+*/
+
+.c-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+  border: 1px solid #e2e3e7;
+  border-radius: 3px;
+  padding: 11px 16px;
+  font-family: 'Inter Web', Helvetica, arial, sans-serif;
+  outline: none;
+  transition: all 0.1s ease-in-out;
+}
+
+.c-input:focus {
+  border-color: #3385ff;
+  box-shadow: 0 0 0 3px #3385ff4d;
+}
+
+.c-input:hover {
+  border-color: #caccd4;
+  transition: all 0.1s ease-in-out;
+}
+
+/*
+    Component: Label
+    ---
+    Class to put on all form labels
+*/
+
+.c-label {
+  font-size: 14px;
+  color: #4b4c60;
+  padding-bottom: 8px;
+}
+
+.c-label--option {
+  padding-bottom: 0;
+  padding: 8px;
+}
+
+/* If a input is focused within the form-field class change te color of the label */
+
+.c-form-field:focus-within .c-label {
+}
+
+/*
+    Component: Button
+    ---
+    Class to put on form buttons or links
+*/
+
+.c-button {
+  text-align: center;
+  line-height: 24px;
+  width: 100%;
+  padding: 11px 16px;
+  background-color: #3385ff;
+  color: #ffffff;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 1px solid #2e77e6;
+}
+
+.c-button:hover {
+  background-color: #4f95ff;
+}
+
+.c-button:focus {
+  box-shadow: 0 0 0 3px rgba(51, 133, 255, 0.49);
+}
+
+.c-button:active {
+  background-color: #2e77e6;
+}
+
+.c-button--block {
+}
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: color
+    ---
+    Utility classes to put specific colors onto elements
+*/
+
+.u-color-neutral-base {
+  color: Silver;
+}
+
+.u-color-neutral-dark {
+  color: Black;
+}
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+  padding-top: 0 !important;
+}
+
+.u-mb-clear {
+  margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+  margin-bottom: 4px !important;
+}
+
+.u-mb-sm {
+  margin-bottom: 8px !important;
+}
+
+.u-mb-md {
+  margin-bottom: 16px !important;
+}
+
+.u-mb-lg {
+  margin-bottom: 32px !important;
+}
+
+.u-mb-xl {
+  margin-bottom: 48px !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+  max-width: 27em !important;
+}
+
+.u-max-width-sm {
+  max-width: 39em !important;
+}
+
+.u-max-width-md {
+  max-width: 50em !important;
+}
+
+.u-max-width-lg {
+  max-width: 63.5em !important;
+}
+
+.u-max-width-none {
+  max-width: none !important;
+}
+
+/*
+    Utilities: align
+    ---
+    Utility classes align text or components
+*/
+
+.u-text-align-center {
+  text-align: center;
+}
+
+.u-align-center {
+  margin: 0 auto;
+}
+
+/*
+    Utilities: text
+    Utility classes to create smaller or bigger test
+*/
+
+.u-text-sm {
+  font-size: 14px;
+}
+
+/*
+    Utility: Widths
+    ---
+    Utility classes to put specific widths onto elements
+    Will be mostly used on o-layout__item
+*/
+
+.u-width-auto {
+  width: auto !important;
+}
+
+.u-1-of-2 {
+  width: 50% !important;
+}
+
+.u-1-of-3 {
+  width: 33.3333333333% !important;
+}
+
+.u-2-of-3 {
+  width: 66.6666666667% !important;
+}
+
+.u-1-of-4 {
+  width: 25% !important;
+}
+
+.u-3-of-4 {
+  width: 75% !important;
+}
+
+.u-1-of-5 {
+  width: 20% !important;
+}
+
+.u-2-of-5 {
+  width: 40% !important;
+}
+
+.u-3-of-5 {
+  width: 60% !important;
+}
+
+.u-4-of-5 {
+  width: 80% !important;
+}
+
+.u-1-of-6 {
+  width: 16.6666666667% !important;
+}
+
+.u-5-of-6 {
+  width: 83.3333333333% !important;
+}
+
+@media (min-width: 576px) {
+  .u-1-of-2-bp1 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp1 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp1 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp1 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp1 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp1 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp1 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp1 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp1 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp1 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp1 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .u-1-of-2-bp2 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp2 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp2 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp2 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp2 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp2 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp2 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp2 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp2 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp2 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp2 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .u-1-of-2-bp3 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp3 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp3 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp3 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp3 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp3 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp3 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp3 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp3 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp3 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp3 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .u-1-of-2-bp4 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp4 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp4 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp4 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp4 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp4 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp4 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp4 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp4 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp4 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp4 {
+    width: 83.3333333333% !important;
+  }
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Media Queries
+    ---
+    EXAMPLE Media Queries for Responsive Design.
+    These examples override the primary ('mobile first') styles.
+    USE THEM INLINE!
+*/
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in mobile first design
+*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

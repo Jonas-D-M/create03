@@ -1,0 +1,629 @@
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+  /* colors */
+  --color-alpha-10-light: #f0f0f7;
+  --color-alpha-light: #f2f2f9;
+  --color-alpha: #a5a4bf;
+  --color-alpha-dark: #4c4b68;
+  --color-alpha-10-dark: #3b3b53;
+
+  --color-neutral-light: #ffffff;
+  /* --color-neutral: SLATEGRAY; */
+  --color-neutral-dark: #4d4f5c;
+
+  /* Shadows */
+  --shadow-neutral: 0 2px 6px rgba(0, 0, 0, 0.04);
+
+  /* border radius */
+
+  /* transitions */
+  --transition-alpha: 0.1s;
+
+  /* grid system */
+  --global-baseline: 5px;
+  --layout-sidebar-width: 260px;
+  --layout-header-height: 70px;
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+  font-size: 15px;
+  line-height: 1.5;
+  font-family: 'Source Sans Pro', sans-serif, Helvetica, arial, sans-serif;
+  color: var(--color-neutral-dark);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-alpha-10-light);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+::-moz-selection {
+  background: var(--color-alpha);
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: var(--color-alpha);
+  color: white;
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 48px;
+  margin: 0 0 24px;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0 0 24px;
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 24px;
+}
+
+ul,
+ol {
+  padding-left: 24px;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: LightGrey;
+  margin: 0 0 24px;
+}
+
+a {
+  transition: all var(--transition-alpha);
+  color: var(--color-alpha);
+  outline-color: var(--color-alpha);
+  outline-width: medium;
+  outline-offset: 2px;
+}
+
+a:visited,
+a:active {
+  color: var(--color-alpha);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-alpha-light);
+}
+
+label,
+input {
+  display: block;
+}
+
+select {
+  width: 100%;
+}
+
+input::placeholder {
+  color: var(--color-neutral-light);
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+  position: relative;
+  padding: 24px 24px 0;
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 79.5em; /* 79.5 * 16px = 1272 */
+  width: 100%;
+}
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+  list-style: none;
+  padding: 0;
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*
+    Object: Hide accessible
+    ---
+    Accessibly hide any element
+*/
+
+.o-hide-accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*
+    Component: dashboard
+    ---
+    dashboard shit
+*/
+.c-dashboard {
+  display: grid;
+  grid-gap: var(--global-baseline);
+  margin-bottom: var(--global-baseline);
+}
+/*
+    Component: app
+    ---
+    Website app
+*/
+
+.c-app {
+  min-height: 100vh;
+}
+
+.c-app__topbar {
+  display: none;
+  background-color: var(--color-neutral-light);
+  box-shadow: var(--shadow-neutral);
+}
+
+.c-app__sidebar {
+  display: none;
+  background-color: var(--color-neutral-dark);
+}
+
+.c-app__main {
+  /* position: sticky;
+  overflow: auto; */
+}
+
+@media screen and (min-width: 960px) {
+  .c-app {
+    display: grid;
+    grid-template-columns: var(--layout-sidebar-width) 1fr;
+    grid-template-rows: var(--layout-header-height) 1fr;
+  }
+  .c-app__sidebar,
+  .c-app__topbar {
+    display: block;
+  }
+
+  .c-app__sidebar,
+  .c-app__main {
+    height: calc(100vh - var(--layout-header-height));
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+.c-app__logo {
+  display: flex;
+  align-items: center;
+  padding: calc(var(--global-baseline) * 5) calc(var(--global-baseline) * 4);
+  background-color: var(--color-alpha-10-dark);
+}
+
+.c-logo {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1rem; /* 1 x fz body */
+  color: var(--color-neutral-light);
+  letter-spacing: 2px;
+  line-height: calc(var(--global-baseline) * 4);
+  padding: 0 calc(var(--global-baseline) * 4);
+}
+
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-main-nav {
+}
+
+.c-main-nav__list {
+  margin: 0;
+  padding: 0;
+}
+.c-main-nav__item {
+  display: flex;
+  align-items: center;
+  padding: calc(var(--global-baseline) * 3) calc(var(--global-baseline) * 4);
+}
+.c-main-nav__link {
+  margin-left: calc(var(--global-baseline) * 2);
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--color-neutral-light);
+
+  text-decoration: none;
+}
+.c-main-nav__link:visited {
+  color: var(--color-neutral-light);
+}
+
+.c-main-nav__icon {
+  height: 1rem;
+  width: 1rem;
+  fill: var(--color-alpha-light);
+}
+.c-main-nav__item.is-selected,
+.c-main-nav__item:hover {
+  background: var(--color-alpha-10-dark);
+  border-left: var(--global-baseline) solid var(--color-alpha);
+}
+
+::-webkit-scrollbar {
+  width: 10 px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: color
+    ---
+    Utility classes to put specific colors onto elements
+*/
+
+.u-color-neutral {
+  color: var(--color-neutral);
+}
+
+.u-color-neutral-dark {
+  color: var(--color-neutral-dark);
+}
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+  padding-top: 0 !important;
+}
+
+.u-mb-clear {
+  margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+  margin-bottom: 4px !important;
+}
+
+.u-mb-sm {
+  margin-bottom: 8px !important;
+}
+
+.u-mb-md {
+  margin-bottom: 16px !important;
+}
+
+.u-mb-lg {
+  margin-bottom: 32px !important;
+}
+
+.u-mb-xl {
+  margin-bottom: 48px !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+  max-width: 27em !important;
+}
+
+.u-max-width-sm {
+  max-width: 39em !important;
+}
+
+.u-max-width-md {
+  max-width: 50em !important;
+}
+
+.u-max-width-lg {
+  max-width: 63.5em !important;
+}
+
+.u-max-width-none {
+  max-width: none !important;
+}
+
+/*
+    Utilities: align
+    ---
+    Utility classes align text or components
+*/
+
+.u-align-text-center {
+  text-align: center;
+}
+
+.u-align-center {
+  margin: 0 auto;
+}
+
+/*
+    Utilities: text
+    Utility classes to create smaller or bigger test
+*/
+
+.u-text-sm {
+  font-size: 14px;
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Media Queries
+    ---
+    EXAMPLE Media Queries for Responsive Design.
+    These examples override the primary ('mobile first') styles.
+    USE THEM INLINE!
+*/
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in mobile first design
+*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

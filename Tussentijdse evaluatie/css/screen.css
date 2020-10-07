@@ -1,0 +1,937 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-weight: 400;
+  src: url('../fonts/IBMPlexSans-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-weight: 600;
+  src: url('../fonts/IBMPlexSans-Medium.otf') format('otf');
+}
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+  /* colors */
+  --global-headertext-color-dark: #17191a;
+  --global-subheader-color-dark: #1b1918;
+  --global-text-color-light: #616466;
+  --global-background-color: #009de6;
+  --global-border-color: #c6cacc;
+  --global-input-color: #616466;
+  --global-color-alpha-dark: rgba(26, 182, 255, 0.3);
+  --global-color-alpha-light: #009de6;
+  --global-color-alpha: #009de6;
+
+  /* fonts */
+
+  /* shadows */
+
+  /* borders */
+  --global-borderRadius: 3px;
+  --global-borderRadiusCard: 4px;
+  --global-borderRadiusTextarea: 2px;
+  --global-borderWidth: 1px;
+
+  /* transitions */
+  --global-transitionEasing-out: ease-out;
+  --global-transitionEasing-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --global-transitionDuration-alpha: 0.1s;
+  --global-transitionDuration-beta: 0.2s;
+  --global-transitionDuration-gamma: 0.3s;
+
+  /* baseline */
+  --global-baseline: 8px;
+  --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+
+  --global-whitespace-xs: calc(var(--global-baseline) * 0.5); /* = 4px */
+  --global-whitespace-sm: calc(var(--global-baseline) * 1); /*  = 8px */
+  --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
+  --global-whitespace-lg: calc(var(--global-baseline) * 4); /*  = 32px */
+  --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
+  --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
+
+  /* forms */
+  --global-label-color: var(--global-color-neutral-xx-dark);
+  --global-placeholder-color: var(--global-color-neutral-x-light);
+  --global-input-backgroundColor: White;
+  --global-input-color: var(--global-input-color);
+  --global-input-borderColor: var(--global-color-neutral-xxx-light);
+  --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+  --global-input-focus-borderColor: var(--global-color-alpha);
+  --global-input-error-borderColor: var(--global-color-error);
+  --global-input-focus-boxShadowSpread: 0 0 0 3px;
+  --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
+  --global-input-error-boxShadowColor: var(--global-color-error-x-transparent);
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--global-text-color-light);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--global-background-color);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+::-moz-selection {
+  background: orange;
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: orange;
+  color: white;
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 37px;
+  color: var(--global-headertext-color-dark);
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0 0 24px;
+  color: var(--global-subheader-color-dark);
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 var(--global-whitespace);
+}
+
+ul,
+ol {
+  padding-left: 0;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: LightGrey;
+  margin: 0 0 24px;
+}
+
+a {
+  transition: all var(--transition-alpha);
+  color: var(--color-alpha);
+  outline-color: var(--color-alpha);
+  outline-width: medium;
+  outline-offset: 2px;
+}
+
+a:visited,
+a:active {
+  color: var(--color-alpha);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-alpha-light);
+}
+
+label,
+input {
+  display: inline-block;
+}
+
+select {
+  width: 100%;
+}
+
+input::placeholder {
+  color: var(--color-neutral);
+}
+
+input:disabled {
+  cursor: not-allowed;
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Object: Hide accessible
+    ---
+    Accessibly hide any element
+*/
+
+.o-hide-accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/*
+    Objects: Button-reset
+    ---
+    resets default browser buttons
+*/
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+  position: relative;
+  padding: 24px 24px 0;
+}
+
+.o-row-form {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* size modifiers */
+
+.o-row--lg {
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+
+.o-row--xl {
+  padding-top: 72px;
+  padding-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .o-row {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (min-width: 992px) {
+  .o-row--xl {
+    padding-top: 96px;
+    padding-bottom: 72px;
+  }
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 79.5em; /* 79.5 * 16px = 1272 */
+  width: 100%;
+}
+
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+  position: relative;
+}
+
+.o-section + .o-section {
+  padding-top: 8px;
+}
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+  list-style: none;
+  padding: 0;
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*
+    Object: Hide accessible
+    ---
+    Accessibly hide any element
+*/
+
+.o-hide-accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+/*
+    Component: Forms
+    ---
+    Everything form related here
+*/
+
+.c-form-field--option {
+  display: flex;
+  align-items: center;
+}
+
+.has-error {
+  --label-color: var(--global-color-error);
+  --input-borderColor: var(--global-input-error-borderColor);
+
+  --error-message-display: block;
+}
+
+.c-intro-text {
+  margin-top: var(--global-whitespace-lg);
+  margin-bottom: var(--global-whitespace-lg);
+}
+
+.c-subheader {
+  color: var(--global-subheader-color-dark);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  display: block;
+  margin-block-end: 0.625rem;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.c-card {
+  --card-borderRadius: var(--global-borderRadiusCard);
+  background-color: var(--card-backgroundColor, White);
+  margin-bottom: var(--global-whitespace);
+  border-radius: var(--card-borderRadius, var(--global-borderRadius));
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.075);
+  overflow: hidden;
+  padding-left: var(--global-whitespace-lg);
+  padding-top: var(--global-whitespace-lg);
+  min-width: 512px;
+  min-height: 846px;
+  padding: 0 var(--global-whitespace-lg) 0 var(--global-whitespace-lg);
+}
+
+.c-textarea {
+  outline: none;
+  resize: none;
+  width: 100%;
+  min-height: 188px;
+  border: 2px solid var(--global-border-color);
+  border-radius: var(--global-borderRadiusTextarea);
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+}
+
+.c-input {
+  --input-transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  font-size: 16px;
+  color: var(--global-input-color);
+  font-family: inherit;
+  line-height: calc(var(--global-baseline) * 3);
+
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+  outline: none;
+  transition: var(--input-transition);
+
+  border-radius: var(--input-borderRadius, var(--global-borderRadius));
+  border: var(--input-borderWidth, var(--global-borderWidth)) solid var(--input-borderColor, var(--global-input-borderColor));
+  background-color: var(--input-backgroundColor, var(--global-input-backgroundColor));
+}
+
+.c-input:hover {
+  border-color: var(--input-hover-borderColor, var(--global-input-hover-borderColor));
+}
+
+.c-input:focus,
+.c-input:active {
+  border-color: var(--input-focus-borderColor, var(--global-input-focus-borderColor));
+  box-shadow: var(--global-input-focus-boxShadowSpread) var(--input-focus-boxShadowColor, var(--global-input-focus-boxShadowColor));
+}
+
+.c-button {
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  background-color: var(--global-background-color);
+  color: white;
+
+  padding: calc(var(--global-baseline) * 1.5 - var(--button-borderWidth, var(--global-borderWidth))) var(--global-whitespace-md);
+  line-height: calc(var(--global-baseline) * 3);
+  outline: none;
+  box-shadow: var(--button-boxShadow, 0);
+  transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+}
+.c-button:hover {
+  border-color: var(--button-hover-borderColor, var(--global-color-alpha-dark));
+  background-color: var(--button-hover-backgroundColor, var(--global-color-alpha-light));
+}
+
+.c-button:focus {
+  background-color: var(--button-focus-backgroundColor, var(--global-color-alpha));
+  border-color: var(--button-focus-borderColor, var(--global-color-alpha-dark));
+  box-shadow: var(--global-input-focus-boxShadowSpread) var(--button-focus-boxShadowColor, var(--global-input-focus-boxShadowColor));
+}
+
+.c-button:active {
+  background-color: var(--button-active-backgroundColor, var(--global-color-alpha-dark));
+  border-color: var(--button-active-borderColor, var(--global-color-alpha-dark));
+  box-shadow: var(--button-active-boxShadow, 0);
+}
+
+/*
+    Custom option
+    ---
+    Custom checkboxes & radio buttons
+*/
+
+/* Hide the actual input with the class .o-hide-accessible */
+
+.c-custom-option {
+  --custom-option-background: var(--global-input-backgroundColor);
+  --custom-option-borderRadius: var(--global-borderRadius);
+  --custom-option-borderColor: var(--global-input-borderColor);
+  --custom-option-hover-borderColor: var(--global-input-hover-borderColor);
+  --custom-option-focus-borderColor: var(--global-input-focus-borderColor);
+  --custom-option-focus-boxShadowColor: var(--global-input-focus-boxShadowColor);
+  --custom-option-focus-boxShadow: var(--global-input-focus-boxShadowSpread) var(--custom-option-focus-boxShadowColor);
+  --custom-option__symbol-fill: var(--global-color-alpha);
+  --custom-option-transition: var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+  display: flex;
+  align-items: center;
+}
+
+.c-custom-option__fake-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background: var(--custom-option-background);
+  border: 1px solid var(--custom-option-borderColor);
+  transition: all var(--custom-option-transition);
+  box-shadow: var(--custom-option-boxShadow, 0);
+}
+
+.c-custom-option__fake-input--checkbox {
+  border-radius: var(--custom-option-borderRadius);
+}
+
+.c-custom-option__fake-input--radio {
+  border-radius: 100%;
+}
+
+.c-custom-option__symbol {
+  display: block;
+  opacity: 0; /* Hide the symbol initially */
+  transform: scale(0.5);
+  transition: transform var(--custom-option-transition), opacity var(--custom-option-transition);
+}
+
+.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
+  width: 10px;
+  height: 10px;
+  fill: var(--custom-option__symbol-fill);
+}
+
+.c-custom-option__fake-input--radio .c-custom-option__symbol {
+  background-color: var(--custom-option__symbol-fill);
+  border-radius: 100%;
+  width: 6px;
+  height: 6px;
+}
+
+/* hover state */
+
+.c-custom-option:hover {
+  --custom-option-borderColor: var(--custom-option-hover-borderColor);
+}
+
+/* focused and active state */
+
+.c-option--hidden:focus + .c-custom-option,
+.c-option--hidden:active + .c-custom-option {
+  --custom-option-borderColor: var(--custom-option-focus-borderColor);
+  --custom-option-boxShadow: var(--custom-option-focus-boxShadow);
+}
+
+/* checked state */
+
+.c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
+  opacity: 1; /* Show the symbol when the invisible checkbox/radio button is checked */
+  transform: scale(1);
+}
+
+/*
+    Component: Custom Toggle
+    ---
+    Visually change a checkbox into a toggle
+*/
+
+.c-custom-toggle-list {
+  --toggle-list-borderColor: var(--global-color-neutral-xxx-light);
+  margin-bottom: 24px;
+}
+
+.c-custom-toggle-list__item {
+  margin-bottom: 12px;
+}
+
+.c-custom-toggle-list__item + .c-custom-toggle-list__item {
+  padding-top: 12px;
+  border-top: 1px solid var(--toggle-list-borderColor);
+}
+
+.c-custom-toggle {
+  --toggle-backgroundColor: var(--global-color-neutral-xxxx-light);
+  --toggle-borderColor: var(--global-input-borderColor);
+  --toggle-focus-borderColor: var(--global-input-focus-borderColor);
+  --toggle-checked-borderColor: var(--global-color-alpha-dark);
+  --toggle-checked-backgroundColor: var(--global-color-alpha);
+  --toggle-focus-boxShadow: var(--global-input-focus-boxShadowSpread) var(--global-input-focus-boxShadowColor);
+  --toggle-transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+  --toggle__switch-backgroundColor: White;
+  --toggle__switch-checked-backgroundColor: White;
+  --toggle__switch-transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+  display: flex;
+  align-items: center;
+}
+
+.c-custom-toggle--inverted {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.c-custom-toggle__fake-input {
+  display: block;
+  height: 24px;
+  width: 48px;
+  margin-right: 16px;
+  background-color: var(--toggle-backgroundColor);
+  border-radius: 32px;
+  border: 1px solid var(--toggle-borderColor);
+  transition: var(--toggle-transition);
+  box-shadow: var(--toggle-boxShadow, 0);
+}
+
+.c-custom-toggle--inverted .c-custom-toggle__fake-input {
+  margin-right: 0;
+}
+
+.c-custom-toggle__fake-input::after {
+  position: relative;
+  display: block;
+  content: '';
+  height: 22px;
+  width: 22px;
+  border-radius: 22px;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+  background-color: var(--toggle__switch-backgroundColor);
+  transition: var(--toggle__switch-transition);
+}
+
+/* focused and active state */
+
+.c-option--hidden:focus + .c-custom-toggle,
+.c-option--hidden:active + .c-custom-toggle {
+  --toggle-borderColor: var(--toggle-focus-borderColor);
+  --toggle-boxShadow: var(--toggle-focus-boxShadow);
+}
+
+/* checked state */
+
+.c-option--hidden:checked + .c-custom-toggle {
+  --toggle-backgroundColor: var(--toggle-checked-backgroundColor);
+  --toggle-borderColor: var(--toggle-checked-borderColor);
+  --toggle__switch-backgroundColor: var(--toggle__switch-checked-backgroundColor);
+}
+
+.c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
+  transform: translate(24px, 0);
+}
+
+/* special active state */
+
+.c-option--hidden:active + .c-custom-toggle .c-custom-toggle__fake-input::after {
+  width: 28px;
+}
+
+.c-option--hidden:active:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
+  margin-left: -6px;
+}
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: color
+    ---
+    Utility classes to put specific colors onto elements
+*/
+
+.u-color-neutral-light {
+  color: lightGray;
+}
+
+.u-color-neutral {
+  color: Gray;
+}
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+  padding-top: 0 !important;
+}
+
+.u-mb-clear {
+  margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+  margin-bottom: 4px !important;
+}
+
+.u-mb-sm {
+  margin-bottom: 8px !important;
+}
+
+.u-mb-md {
+  margin-bottom: 16px !important;
+}
+
+.u-mb-lg {
+  margin-bottom: 32px !important;
+}
+
+.u-mb-xl {
+  margin-bottom: 48px !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+  max-width: 27em !important;
+}
+
+.u-max-width-sm {
+  max-width: 32em !important;
+}
+
+.u-max-width-md {
+  max-width: 50em !important;
+}
+
+.u-max-width-lg {
+  max-width: 63.5em !important;
+}
+
+.u-max-width-none {
+  max-width: none !important;
+}
+
+/*
+    Utilities: align
+    ---
+    Utility classes align text or components
+*/
+
+.u-align-text-center {
+  text-align: center;
+}
+
+.u-align-center {
+  margin: 0 auto;
+}
+
+/*
+    Utilities: text
+    Utility classes to create smaller or bigger test
+*/
+
+.u-text-sm {
+  font-size: 14px;
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Media Queries
+    ---
+    EXAMPLE Media Queries for Responsive Design.
+    These examples override the primary ('mobile first') styles.
+    USE THEM INLINE!
+*/
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in mobile first design
+*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

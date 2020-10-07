@@ -1,0 +1,1389 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+
+@font-face {
+  font-family: 'Inter Web';
+  font-weight: 400;
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter Web';
+  font-weight: 600;
+  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+}
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+  /* Global colors */
+  --global-color-alpha-light: #4f95ff;
+  --global-color-alpha: #3385ff;
+  --global-color-alpha-dark: #2e77e6;
+  --global-color-alpha-x-dark: #1b4186;
+  --global-color-alpha-transparent: #3385ffbf;
+  --global-color-alpha-x-transparent: #3385ff4d;
+
+  --global-color-neutral-xxxx-light: #f5f6fa;
+  --global-color-neutral-xxx-light: #e2e3e7;
+  --global-color-neutral-xx-light: #caccd4;
+  --global-color-neutral-x-light: #b5b6c0;
+  --global-color-neutral-light: #a0a1ad;
+  --global-color-neutral: #8b8c9a;
+  --global-color-neutral-dark: #757787;
+  --global-color-neutral-x-dark: #606274;
+  --global-color-neutral-xx-dark: #4b4c60;
+  --global-color-neutral-xxx-dark: #35374d;
+  --global-color-neutral-xxxx-dark: #20223a;
+
+  /* global page settings */
+  --global-html-color: var(--global-color-neutral-xxxx-dark);
+  --global-html-backgroundColor: var(--global-color-neutral-xxxx-light);
+  --global-selection-backgroundColor: var(--global-color-alpha);
+
+  /* borders */
+  --global-borderRadius: 3px;
+  --global-borderWidth: 1px;
+
+  /* transitions */
+  --global-transitionTiming-alpha: 0.1s ease-out;
+
+  /* Baseline settings */
+  --global-baseline: 8px;
+  --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+
+  --global-whitespace-xs: calc(var(--global-baseline) / 2); /* = 4px */
+  --global-whitespace-sm: calc(var(--global-baseline) * 1); /*  = 8px */
+  --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
+  --global-whitespace-lg: calc(var(--global-baseline) * 4); /*  = 32px */
+  --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
+  --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
+
+  /* forms */
+  --global-placeholder-color: var(--global-color-neutral-x-light);
+  --global-input-backgroundColor: White;
+  --global-input-color: var(--global-color-neutral-xxxx-dark);
+  --global-input-borderColor: var(--global-color-neutral-xxx-light);
+  --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+  --global-input-focus-borderColor: var(--global-color-alpha);
+  --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
+  --global-input-focus-boxShadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+
+  /* password toggle settings */
+  --global-password-toggle-spacing: calc(var(--global-baseline) * 1.75);
+  --global-password-toggle-size: calc(var(--global-baseline) * 2.5);
+
+  --global-color-error: #ff3333;
+  --global-input-error-borderColor: #ff3333;
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+  background-color: var(--global-html-backgroundColor);
+  color: var(--global-html-color);
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Inter Web', Helvetica, arial, sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+::-moz-selection {
+  background: var(--global-selection-backgroundColor);
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: var(--global-selection-backgroundColor);
+  color: white;
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 48px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 var(--global-whitespace);
+}
+
+ul,
+ol {
+  padding-left: var(--global-whitespace);
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: var(--global-whitespace-sm);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: LightGrey;
+  margin: 0 0 var(--global-whitespace);
+}
+
+a,
+a:visited {
+  transition: all var(--global-transitionTiming-alpha);
+  color: var(--global-color-alpha);
+  outline-color: var(--global-link-BoxShadowColor);
+  outline-width: medium;
+  outline-offset: 2px;
+}
+
+a:hover,
+a:focus {
+  color: var(--global-color-alpha-light);
+}
+
+a:active {
+  color: var(--global-color-alpha-dark);
+}
+
+label,
+input {
+  display: block;
+}
+
+select {
+  width: 100%;
+}
+
+input::placeholder {
+  color: var(--global-placeholder-color);
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+  position: relative;
+  padding: var(--global-whitespace) var(--global-whitespace) 0;
+}
+
+.o-row--login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* size modifiers */
+
+.o-row--lg {
+  padding-top: var(--global-whitespace-xl);
+  padding-bottom: var(--global-whitespace);
+}
+
+.o-row--xl {
+  padding-top: var(--global-whitespace-xxl);
+  padding-bottom: var(--global-whitespace-xl);
+}
+
+@media (min-width: 768px) {
+  .o-row {
+    padding-left: var(--global-whitespace-xl);
+    padding-right: var(--global-whitespace-xl);
+  }
+}
+
+@media (min-width: 992px) {
+  .o-row--xl {
+    padding-top: 96px;
+    padding-bottom: var(--global-whitespace-xxl);
+  }
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 79.5em; /* 79.5 * 16px = 1272 */
+  width: 100%;
+}
+
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+  position: relative;
+}
+
+.o-section + .o-section {
+  padding-top: var(--global-whitespace);
+}
+
+@media (min-width: 768px) {
+  .o-section--lg + .o-section--lg,
+  .o-section--xl + .o-section--xl {
+    padding-top: var(--global-whitespace-xl);
+  }
+}
+
+@media (min-width: 992px) {
+  .o-section--xl + .o-section--xl {
+    padding-top: var(--global-whitespace-xxl);
+  }
+}
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+
+.o-layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.o-layout__item {
+  width: 100%;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+  margin: 0 -12px;
+}
+
+.o-layout--gutter > .o-layout__item {
+  padding: 0 calc(var(--global-whitespace) / 2);
+}
+
+.o-layout--gutter-sm {
+  margin: 0 -6px;
+}
+
+.o-layout--gutter-sm > .o-layout__item {
+  padding: 0 6px;
+}
+
+.o-layout--gutter-lg {
+  margin: 0 -24px;
+}
+
+.o-layout--gutter-lg > .o-layout__item {
+  padding: 0 24px;
+}
+
+.o-layout--gutter-xl {
+  margin: 0 -48px;
+}
+
+.o-layout--gutter-xl > .o-layout__item {
+  padding: 0 var(--global-whitespace-xl);
+}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+  justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+  justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+  justify-content: center;
+}
+
+.o-layout--justify-space-around {
+  justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+  justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+
+.o-layout--align-start {
+  align-items: flex-start;
+}
+
+.o-layout--align-end {
+  align-items: flex-end;
+}
+
+.o-layout--align-center {
+  align-items: center;
+}
+
+.o-layout--align-baseline {
+  align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is one than one flex item */
+
+.o-layout--align-content-start {
+  align-content: start;
+}
+
+.o-layout--align-content-end {
+  align-content: end;
+}
+
+.o-layout--align-content-center {
+  align-content: center;
+}
+
+.o-layout--align-content-space-around {
+  align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+  align-content: space-between;
+}
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+  list-style: none;
+  padding: 0;
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*
+    Object: Hide accessible
+    ---
+    Accessibly hide any element
+*/
+
+.o-hide-accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-logo {
+  --logo__path--1--Fill: var(--global-color-neutral-xxxx-dark);
+  --logo__path--2--Fill: var(--global-color-alpha);
+  --logo__path--3--Fill: var(--global-color-alpha-x-dark);
+  height: var(--global-whitespace);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--global-whitespace-xl);
+}
+
+.c-logo__symbol {
+  height: 100%;
+}
+
+.c-logo__path--1 {
+  fill: var(--logo__path--1--Fill);
+}
+
+.c-logo__path--2 {
+  fill: var(--logo__path--2--Fill);
+}
+
+.c-logo__path--3 {
+  fill: var(--logo__path--3--Fill);
+}
+
+/*
+    Component: Card
+    ---
+    Card with box shadow
+*/
+
+.c-card {
+  --card-backgroundColor: White;
+  --card__footer-borderColor: var(--global-color-neutral-xxx-light);
+  --card-borderRadius: var(--global-borderRadius);
+  background-color: var(--card-backgroundColor);
+  margin-bottom: var(--global-whitespace);
+  border-radius: var(--card-borderRadius);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.075);
+  overflow: hidden;
+}
+
+/* Add padding to child for more flexibility */
+.c-card__body,
+.c-card__footer {
+  padding: var(--global-whitespace) var(--global-whitespace) 0;
+  overflow: auto; /* Fix margin collapse */
+}
+
+.c-card__footer {
+  text-align: center;
+  border-top: 1px solid var(--card__footer-borderColor);
+}
+
+.c-card__title {
+  text-align: center;
+  font-size: 18px;
+  line-height: var(--global-whitespace);
+  font-weight: 600;
+}
+
+@media (min-width: 27em) {
+  .c-card__body {
+    padding: var(--global-whitespace-xl) var(--global-whitespace-xl) var(--global-whitespace);
+  }
+
+  .c-card__title {
+    margin-bottom: var(--global-whitespace-xl);
+  }
+}
+
+/*
+    Component: Forms
+    ---
+    Everything form related here
+*/
+
+.c-form-field--option {
+  display: flex;
+  align-items: center;
+}
+
+.has-error {
+  --label-color: var(--global-color-error);
+  --input-borderColor: var(--global-input-error-borderColor);
+
+  --error-message-display: block;
+}
+/*
+    Component: Input
+    ---
+    Class to put on all input="text" like form inputs
+*/
+
+.c-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  /* border: 1px solid var(--global-input-borderColor); */
+  border: var(--global-borderWidth) solid var(--input-borderColor, var(--global-input-borderColor));
+  border-radius: var(--global-borderRadius);
+  background-color: var(--global-input-backgroundColor);
+  color: var(--global-input-color);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: calc(var(--global-baseline) * 3);
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+  outline: none;
+  transition: border var(--global-transition-timing-alpha), box-shadow var(--global-transition-timing-alpha);
+}
+
+.c-input:hover {
+  border-color: var(--global-input-hover-borderColor);
+}
+
+.c-input:focus,
+.c-input:active {
+  border-color: var(--global-input-focus-borderColor);
+  box-shadow: var(--global-input-focus-boxShadow);
+}
+
+/*
+Input password with toggle checkbox on top of it needs
+more padding on the right to avoid overlap
+*/
+
+.c-input--password-with-toggle {
+  padding-right: 52px;
+}
+
+/* option input for checkboxes and radio buttons */
+
+.c-option {
+  margin-right: var(--global-whitespace-sm);
+}
+
+/*
+    Component: Label
+    ---
+    Class to put on all form labels
+*/
+
+.c-label {
+  margin-bottom: 0;
+  padding-bottom: var(--global-whitespace-sm);
+  font-size: 14px;
+  line-height: 16px;
+  /* color: var(--label-color); */
+  color: var(--label-color, var(--global-color-neutral-xx-dark));
+}
+
+.c-label--option {
+  padding-bottom: 0;
+}
+
+.c-label__error-message {
+  font-weight: 600;
+  float: right;
+  display: var(--error-message-display, none);
+}
+
+/*
+    Component: Button
+    ---
+    Class to put on form buttons or
+*/
+
+.c-button {
+  --button-borderColor: var(--global-color-alpha-dark);
+  --button-hover-borderColor: var(--global-color-alpha-dark);
+  --button-active-borderColor: var(--global-color-alpha-dark);
+  --button-focus-borderColor: var(--global-color-alpha-dark);
+  --button-backgroundColor: var(--global-color-alpha);
+  --button-hover-backgroundColor: var(--global-color-alpha-light);
+  --button-active-backgroundColor: var(--global-color-alpha-dark);
+  --button-focus-backgroundColor: var(--global-color-alpha);
+  --button-focus-boxShadow: var(--global-input-focus-boxShadow);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: var(--global-borderRadius);
+  border: 1px solid var(--button-borderColor);
+  background-color: var(--button-backgroundColor);
+  color: #fff;
+  line-height: calc(var(--global-baseline) * 3);
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+  width: 100%;
+  outline: none;
+  box-shadow: var(--button-boxShadow, 0);
+  transition: all var(--global-transitionTiming-alpha) var(--global-transitionEasing-out);
+}
+
+.c-button:hover {
+  border-color: var(--button-hover-borderColor);
+  background-color: var(--button-hover-backgroundColor);
+}
+
+.c-button:focus {
+  background-color: var(--button-focus-backgroundColor);
+  border-color: var(--button-focus-borderColor);
+  box-shadow: var(--button-focus-boxShadow);
+}
+
+.c-button:active {
+  background-color: var(--button-active-backgroundColor);
+  border-color: var(--button-active-borderColor);
+  box-shadow: var(--button-active-boxShadow, 0);
+}
+
+/*
+    Component: Option list
+*/
+
+.c-option-list {
+  margin-bottom: var(--global-whitespace);
+}
+
+.c-option-list__item {
+  margin-bottom: calc(var(--global-whitespace) / 2);
+}
+
+/*
+    Custom option
+    ---
+    Custom checkboxes & radio buttons
+*/
+
+/* Hide the actual input with the class .o-hide-accessible */
+
+.c-custom-option {
+  --custom-option__symbol-Fill: var(--global-color-alpha);
+  display: flex;
+  align-items: center;
+}
+
+.c-custom-option__fake-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--global-whitespace-md);
+  height: var(--global-whitespace-md);
+  margin-right: var(--global-whitespace-sm);
+  background: var(--global-input-backgroundColor);
+  border: var(--global-borderWidth) solid var(--custom-option-borderColor, var(--global-input-borderColor));
+  box-shadow: var(--custom-option-boxShadow, 0);
+  transition: border var(--global-transitionTiming-alpha), box-shadow var(--global-transitionTiming-alpha);
+}
+
+.c-custom-option__fake-input--checkbox {
+  border-radius: var(--global-borderRadius);
+}
+
+.c-custom-option__fake-input--radio {
+  border-radius: 100%;
+}
+
+.c-custom-option__symbol {
+  display: block;
+  opacity: 0; /* Hide the symbol initially */
+  transform: scale(0.5);
+  transition: transform var(--global-transitionTiming-alpha), opacity var(--global-transitionTiming-alpha);
+}
+
+.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
+  width: 10px;
+  height: 10px;
+  fill: var(--custom-option__symbol-Fill);
+}
+
+.c-custom-option__fake-input--radio .c-custom-option__symbol {
+  background-color: var(--custom-option__symbol-Fill);
+  border-radius: 100%;
+  width: 6px;
+  height: 6px;
+}
+
+/* hover state */
+
+.c-custom-option:hover {
+  --custom-option-borderColor: var(--global-input-hover-borderColor);
+}
+
+/* focused and active state */
+
+.c-option--hidden:focus + .c-custom-option,
+.c-option--hidden:active + .c-custom-option {
+  --custom-option-borderColor: var(--global-input-focus-borderColor);
+  --custom-option-boxShadow: var(--global-input-focus-boxShadow);
+}
+
+/* checked state */
+
+.c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
+  opacity: 1; /* Show the symbol when the invisible checkbox/radio button is checked */
+  transform: scale(1);
+}
+
+/*
+    Component: Custom Toggle
+    ---
+    Visually change a checkbox into a toggle
+*/
+
+.c-custom-toggle-list {
+  --toggle-list-borderColor: var(--global-color-neutral-xxx-light);
+  margin-bottom: var(--global-whitespace);
+}
+
+.c-custom-toggle-list__item {
+  margin-bottom: calc(var(--global-whitespace) / 2);
+}
+
+.c-custom-toggle-list__item + .c-custom-toggle-list__item {
+  padding-top: calc(var(--global-whitespace) / 2);
+  border-top: 1px solid var(--toggle-list-borderColor);
+}
+
+.c-custom-toggle {
+  --toggle-backgroundColor: var(--global-color-neutral-xxxx-light);
+  --toggle-checked-borderColor: var(--global-color-alpha-dark);
+  --toggle-checked-backgroundColor: var(--global-color-alpha);
+  --toggle-focus-boxShadow: var(--global-input-focus-boxShadow);
+  --toggle__switch-backgroundColor: White;
+  --toggle__switch-checked-backgroundColor: White;
+  --toggle__switch-transition: all var(--global-transitionTiming-alpha);
+  display: flex;
+  align-items: center;
+}
+
+.c-custom-toggle--inverted {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.c-custom-toggle__fake-input {
+  display: block;
+  height: 24px;
+  width: 48px;
+  margin-right: var(--global-whitespace-md);
+  background-color: var(--toggle-backgroundColor);
+  border-radius: 32px;
+  border: var(--global-borderWidth) solid var(--toggle-borderColor, var(--global-input-borderColor));
+  transition: all var(--global-transitionTiming-alpha);
+  box-shadow: var(--toggle-boxShadow, 0);
+}
+
+.c-custom-toggle--inverted .c-custom-toggle__fake-input {
+  margin-right: 0;
+}
+
+.c-custom-toggle__fake-input::after {
+  position: relative;
+  display: block;
+  content: '';
+  height: 22px;
+  width: 22px;
+  border-radius: 22px;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+  background-color: var(--toggle__switch-backgroundColor);
+  transition: var(--toggle__switch-transition);
+}
+
+/* focused and active state */
+
+.c-option--hidden:focus + .c-custom-toggle,
+.c-option--hidden:active + .c-custom-toggle {
+  --toggle-borderColor: var(--global-input-focus-borderColor);
+  --toggle-boxShadow: var(--toggle-focus-boxShadow);
+}
+
+/* checked state */
+
+.c-option--hidden:checked + .c-custom-toggle {
+  --toggle-backgroundColor: var(--toggle-checked-backgroundColor);
+  --toggle-borderColor: var(--toggle-checked-borderColor);
+  --toggle__switch-backgroundColor: var(--toggle__switch-checked-backgroundColor);
+}
+
+.c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
+  transform: translate(24px, 0);
+}
+
+/* special active state */
+
+.c-option--hidden:active + .c-custom-toggle .c-custom-toggle__fake-input::after {
+  width: 28px;
+}
+
+.c-option--hidden:active:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
+  margin-left: -6px;
+}
+
+/*
+    Component: Custom Select
+    ---
+    Custom select dropdown
+*/
+
+.c-custom-select {
+  display: block;
+  position: relative;
+}
+
+.c-custom-select__symbol {
+  width: var(--global-whitespace);
+  height: var(--global-whitespace);
+  position: absolute;
+  top: calc(var(--global-whitespace) / 2);
+  right: calc(var(--global-whitespace) / 2);
+  pointer-events: none;
+  fill: var(--global-color-neutral-x-light);
+}
+
+/*
+    Component: Password Toggle
+    ---
+    Password toggle custom checkbox
+*/
+.c-password-toggle-container {
+  position: relative;
+  display: block;
+}
+.c-password-toggle {
+  position: absolute;
+  top: var(--global-password-toggle-spacing);
+  bottom: var(--global-password-toggle-spacing);
+  right: var(--global-password-toggle-spacing);
+
+  display: block;
+  width: var(--global-password-toggle-size);
+  height: var(--global-password-toggle-size);
+  /* background-color: red; */
+}
+
+.c-password-toggle__symbol {
+  fill: var(--global-color-neutral-x-light);
+  position: absolute;
+}
+
+.c-password-toggle__symbol--show {
+  display: block;
+}
+.c-password-toggle__symbol--hide {
+  display: none;
+}
+
+.c-password-toggle__checkbox:checked + .c-password-toggle__label .c-password-toggle__symbol--hide {
+  display: block;
+}
+
+.c-password-toggle__checkbox:checked + .c-password-toggle__label .c-password-toggle__symbol--show {
+  display: none;
+}
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: color
+    ---
+    Utility classes to put specific colors onto elements
+*/
+
+.u-color-neutral {
+  color: var(--global-color-neutral);
+}
+
+.u-color-neutral-dark {
+  color: var(--global-color-neutral-dark);
+}
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+  padding-top: 0 !important;
+}
+
+.u-mb-clear {
+  margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+  margin-bottom: 4px !important;
+}
+
+.u-mb-sm {
+  margin-bottom: var(--global-whitespace-sm) !important;
+}
+
+.u-mb-md {
+  margin-bottom: var(--global-whitespace-md) !important;
+}
+
+.u-mb-lg {
+  margin-bottom: var(--global-whitespace-lg) !important;
+}
+
+.u-mb-xl {
+  margin-bottom: var(--global-whitespace-xl) !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+  max-width: 27em !important;
+}
+
+.u-max-width-sm {
+  max-width: 39em !important;
+}
+
+.u-max-width-md {
+  max-width: 50em !important;
+}
+
+.u-max-width-lg {
+  max-width: 63.5em !important;
+}
+
+.u-max-width-none {
+  max-width: none !important;
+}
+
+/*
+    Utilities: align
+    ---
+    Utility classes align text or components
+*/
+
+.u-align-text-center {
+  text-align: center;
+}
+
+.u-align-center {
+  margin: 0 auto;
+}
+
+/*
+    Utilities: text
+    Utility classes to create smaller or bigger test
+*/
+
+.u-text-sm {
+  font-size: 14px;
+}
+
+/*
+    Utility: Widths
+    ---
+    Utility classes to put specific widths onto elements
+    Will be mostly used on o-layout__item
+*/
+
+.u-width-auto {
+  width: auto !important;
+}
+
+.u-1-of-2 {
+  width: 50% !important;
+}
+
+.u-1-of-3 {
+  width: 33.3333333333% !important;
+}
+
+.u-2-of-3 {
+  width: 66.6666666667% !important;
+}
+
+.u-1-of-4 {
+  width: 25% !important;
+}
+
+.u-3-of-4 {
+  width: 75% !important;
+}
+
+.u-1-of-5 {
+  width: 20% !important;
+}
+
+.u-2-of-5 {
+  width: 40% !important;
+}
+
+.u-3-of-5 {
+  width: 60% !important;
+}
+
+.u-4-of-5 {
+  width: 80% !important;
+}
+
+.u-1-of-6 {
+  width: 16.6666666667% !important;
+}
+
+.u-5-of-6 {
+  width: 83.3333333333% !important;
+}
+
+@media (min-width: 576px) {
+  .u-1-of-2-bp1 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp1 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp1 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp1 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp1 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp1 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp1 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp1 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp1 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp1 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp1 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .u-1-of-2-bp2 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp2 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp2 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp2 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp2 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp2 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp2 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp2 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp2 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp2 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp2 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .u-1-of-2-bp3 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp3 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp3 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp3 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp3 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp3 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp3 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp3 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp3 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp3 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp3 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .u-1-of-2-bp4 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp4 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp4 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp4 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp4 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp4 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp4 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp4 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp4 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp4 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp4 {
+    width: 83.3333333333% !important;
+  }
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Media Queries
+    ---
+    EXAMPLE Media Queries for Responsive Design.
+    These examples override the primary ('mobile first') styles.
+    USE THEM INLINE!
+*/
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in mobile first design
+*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

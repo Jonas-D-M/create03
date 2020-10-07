@@ -1,0 +1,1426 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+@font-face {
+  font-family: 'Zian';
+  src: url('../fonts/Zian.ttf') format('ttf');
+}
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+  --global-color-alpha: #3385ff;
+  --global-color-alpha-transparent: #3385ffbf;
+  --global-color-alpha-x-transparent: #3385ff4d;
+
+  --global-color-neutral-xxxx-light: #f5f6fa;
+  --global-color-neutral-xxx-light: #e2e3e7;
+  --global-color-neutral-xx-light: #caccd4;
+  --global-color-neutral-x-light: #b5b6c0;
+
+  --global-color-neutral-dark: #757787;
+  --global-color-neutral-xx-dark: #4b4c60;
+  --global-color-neutral-xxxx-dark: #20223a;
+  --global-color-error: #ff3333;
+  --global-input-error-borderColor: #ff3333;
+
+  /* global page settings */
+  --global-page-color: var(--global-color-neutral-xxxx-dark);
+  --global-page-backgroundColor: var(--global-color-neutral-xxxx-light);
+  --global-selection-backgroundColor: var(--global-color-alpha);
+
+  /* border radius */
+  --global-borderRadius: 3px;
+  --global-borderWidth: 1px;
+
+  /* transitions */
+  --global-transitionEasing-out: ease-out;
+  --global-transitionDuration-alpha: 0.1s;
+
+  /* Baseline settings */
+  --global-baseline: 8px;
+
+  --global-whitespace-xs: calc(var(--global-baseline) * 0.5); /* = 4px */
+  --global-whitespace-sm: calc(var(--global-baseline) * 1); /*  = 8px */
+  --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
+  --global-whitespace: calc(var(--global-baseline) * 3); /* = var(--global-whitespace) */
+  --global-whitespace-lg: calc(var(--global-baseline) * 4); /*  = 32px */
+  --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
+  --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
+
+  /* forms */
+  --global-label-color: var(--global-color-neutral-xx-dark);
+  --global-placeholder-color: var(--global-color-neutral-x-light);
+  --global-input-backgroundColor: White;
+  --global-input-color: var(--global-color-neutral-xxxx-dark);
+  --global-input-borderColor: var(--global-color-neutral-xxx-light);
+  --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+  --global-input-focus-borderColor: var(--global-color-alpha);
+  --global-input-error-borderColor: var(--global-color-error);
+  --global-input-focus-boxShadowSpread: 0 0 0 3px;
+  --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
+  --global-input-error-boxShadowColor: var(--global-color-error-x-transparent);
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Montserrat', Helvetica, arial, sans-serif;
+  color: white;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-image: url('../img/marswallpaper.jpg');
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+
+  /* Background image is fixed in the viewport so that it doesn't move when 
+      the content's height is greater than the image's height */
+  background-attachment: fixed;
+
+  /* This is what makes the background image rescale based
+      on the container's size */
+  background-size: cover;
+
+  /* Set a background color that will be displayed
+      while the background image is loading */
+  background-color: #464646;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+::-moz-selection {
+  background: #3385ff;
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: #3385ff;
+  color: white;
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 48px;
+  margin: 0 0 var(--global-whitespace);
+  font-family: 'Zian', Helvetica, arial, sans-serif;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+h4,
+h5,
+h6 {
+  font-size: 20px;
+  line-height: var(--global-whitespace);
+  margin: 0 0 var(--global-whitespace);
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 var(--global-whitespace);
+}
+
+ul,
+ol {
+  padding-left: var(--global-whitespace);
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 var(--global-whitespace);
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: white;
+  margin-top: 8px;
+  margin-bottom: var(--global-whitespace);
+}
+
+a {
+  color: #3385ff;
+  transition: all 0.1s ease-in-out;
+}
+
+a:visited,
+a:active {
+  color: hsla(216, 80, 100, 0.3);
+}
+
+a:hover,
+a:focus {
+  color: hsla(216, 80, 100, 0.3);
+}
+
+label,
+input {
+  display: block;
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+  position: relative;
+  padding: 16px 16px 0;
+}
+
+.o-row--login {
+  /* stuff here to align the card */
+}
+.o-row--body {
+  /* min-height: 100vh; */
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .o-row--body {
+    min-height: 70vh;
+  }
+}
+.o-row--lg {
+  padding-top: 48px;
+  padding-bottom: var(--global-whitespace);
+}
+
+.o-row--xl {
+  padding-top: 72px;
+  padding-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .o-row {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (min-width: 992px) {
+  .o-row--xl {
+    padding-top: 96px;
+    padding-bottom: 72px;
+  }
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 79.5em; /* 79.5 * 16px = 1272 */
+  width: 100%;
+}
+
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+  position: relative;
+}
+
+.o-section + .o-section {
+  padding-top: var(--global-whitespace);
+}
+
+@media (min-width: 768px) {
+  .o-section--lg + .o-section--lg,
+  .o-section--xl + .o-section--xl {
+    padding-top: 48px;
+  }
+}
+
+@media (min-width: 992px) {
+  .o-section--xl + .o-section--xl {
+    padding-top: 72px;
+  }
+}
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+
+.o-layout {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.o-layout__item {
+  width: 100%;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+  margin: 0 -12px;
+}
+
+.o-layout--gutter > .o-layout__item {
+  padding: 0 12px;
+}
+
+.o-layout--gutter-sm {
+  margin: 0 -6px;
+}
+
+.o-layout--gutter-sm > .o-layout__item {
+  padding: 0 6px;
+}
+
+.o-layout--gutter-lg {
+  margin: 0 -var(--global-whitespace);
+}
+
+.o-layout--gutter-lg > .o-layout__item {
+  padding: 0 var(--global-whitespace);
+}
+
+.o-layout--gutter-xl {
+  margin: 0 -48px;
+}
+
+.o-layout--gutter-xl > .o-layout__item {
+  padding: 0 48px;
+}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+  justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+  justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+  justify-content: center;
+}
+
+.o-layout--justify-space-around {
+  justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+  justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+
+.o-layout--align-start {
+  align-items: flex-start;
+}
+
+.o-layout--align-end {
+  align-items: flex-end;
+}
+
+.o-layout--align-center {
+  align-items: center;
+}
+
+.o-layout--align-baseline {
+  align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is one than one flex item */
+
+.o-layout--align-content-start {
+  align-content: start;
+}
+
+.o-layout--align-content-end {
+  align-content: end;
+}
+
+.o-layout--align-content-center {
+  align-content: center;
+}
+
+.o-layout--align-content-space-around {
+  align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+  align-content: space-between;
+}
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+  list-style: none;
+  padding: 0;
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+/*
+    Component: arrow
+*/
+.c-arrow {
+  cursor: pointer;
+}
+
+.c-arrow__next {
+  margin-right: 16px;
+}
+.c-arrow__prev {
+  margin-left: 16px;
+}
+
+/*
+    Component: subtitle
+*/
+.c-subtitle {
+  font-weight: 600;
+  line-height: var(--global-whitespace);
+  font-size: var(--global-whitespace);
+  margin-bottom: var(--global-whitespace-md);
+}
+
+.c-subtext {
+  width: 100%;
+}
+/* only for iPhone 5S and SE :) */
+@media (max-width: 320px) {
+  .c-subtext {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+/*
+    Component: mockup
+    ---
+  shows mockup of application
+*/
+.c-mockup {
+  height: 316px;
+  width: 144px;
+  margin-bottom: 42px;
+}
+@media (min-width: 768px) {
+  .c-mockup {
+    width: 232px;
+    height: 509px;
+  }
+}
+
+/*
+    Component: intro-text
+    ---
+    Website intro text under the logo
+*/
+.c-intro {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.c-intro-text {
+  line-height: var(--global-whitespace);
+  text-align: center;
+  margin-bottom: var(--global-whitespace-xxl);
+  width: 100%;
+}
+/* only for iPhone 5 and SE */
+@media (max-width: 320px) {
+  .c-intro-text {
+    font-size: 14px;
+    line-height: var(--global-whitespace-md);
+  }
+}
+@media (min-width: 768px) {
+  .c-intro-text {
+    width: 567px;
+  }
+}
+@media (min-width: 768px) {
+  .c-intro-text {
+    line-height: 29px;
+    width: 599px;
+  }
+}
+
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: var(--global-whitespace-md);
+  height: var(--global-whitespace);
+  min-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .c-logo {
+    height: 42px;
+  }
+}
+
+@media (max-width: 320px) {
+  .c-logo {
+    margin-top: var(--global-whitespace-lg);
+  }
+}
+
+/*
+    Component: Card
+    ---
+    Card with box shadow
+*/
+
+.c-card {
+  overflow: hidden;
+}
+
+.c-card__body,
+.c-card__footer {
+  padding: var(--global-whitespace);
+}
+
+.c-card__footer {
+  border-top: 1px solid #e2e3e7;
+  color: #757787;
+}
+
+.c-card__title {
+  font-size: 18px;
+}
+
+.c-card__body > *:last-child,
+.c-card__footer > *:last-child,
+.c-card__body > *:last-child > *:last-child,
+.c-card__footer > *:last-child > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 27em) {
+  .c-card__body {
+    padding: 48px;
+  }
+  .c-card__title {
+    margin-bottom: 48px;
+  }
+}
+
+/*
+    Component: compass
+    ---
+    Everything related to the compass shown on weather page
+*/
+.c-compass {
+  margin-top: 32px;
+  /* transform: rotate(-90deg); */
+}
+
+/*
+    Component: Loader
+    ---
+    Loader boxes for site
+*/
+
+.c-loader-box {
+  justify-items: center;
+}
+
+@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@-moz-keyframes placeHolderShimmer {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+
+.c-loader {
+  min-height: 375px;
+  min-width: 184px;
+  padding: var(--global-whitespace-md);
+  margin: var(--global-whitespace);
+
+  /* animation stuff */
+  background: linear-gradient(271deg, #000000, #3b3b3b);
+  background-size: 400% 400%;
+
+  -webkit-animation: placeHolderShimmer 1s ease infinite;
+  -moz-animation: placeHolderShimmer 1s ease infinite;
+  animation: placeHolderShimmer 1s ease infinite;
+  opacity: 0.4;
+}
+
+@media (min-width: 992px) {
+  .c-loader-box {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-areas: 'header header header';
+    justify-items: center;
+  }
+}
+
+/*
+    Component: weather
+    ---
+    Everything related to weather messages
+*/
+
+.c-weather-body {
+  background-color: rgba(0, 0, 0, 0.4);
+
+  padding: var(--global-whitespace-md);
+  min-width: 184px;
+  min-height: 182px;
+  margin-bottom: var(--global-whitespace);
+}
+
+.c-arrow {
+  display: none;
+}
+
+.c-slider__circles {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .c-weather__secondpage {
+    display: none;
+  }
+  .c-slider {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+  }
+
+  .c-arrow {
+    display: block;
+    fill: white;
+  }
+
+  .c-slider__circles {
+    display: block;
+  }
+
+  .c-weather {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-areas: 'header header header';
+    justify-items: center;
+  }
+}
+.c-weather-body {
+  margin-top: var(--global-whitespace);
+  margin-right: var(--global-whitespace);
+  margin-left: var(--global-whitespace);
+}
+
+.c-weather-header {
+  font-size: var(--global-whitespace);
+  font-weight: 500;
+  line-height: 29px;
+}
+
+.c-weather-subheader {
+  line-height: 19px;
+}
+
+.c-weather-high,
+.c-weather-low,
+.c-weather-average {
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-weather-low {
+  margin-top: var(--global-baseline);
+  margin-bottom: var(--global-whitespace);
+}
+
+/*
+    Component: Forms
+    ---
+    Everything form related here
+*/
+.c-form {
+  /* min-height: 70vh; */
+  display: flex;
+}
+
+.c-form-field {
+  position: relative;
+}
+
+.c-form-field--option {
+  display: flex;
+  align-items: center;
+}
+
+.has-error {
+  --error-message-display: flex;
+}
+
+/*
+    Component: Input
+    ---
+    Class to put on all input="text" like form inputs
+*/
+
+.c-input {
+  --input-transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+
+  border-radius: 8px;
+  border: hidden 1px;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: calc(var(--global-baseline) * 3);
+
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+
+  outline: none;
+  transition: var(--input-transition);
+  margin-bottom: 8px;
+}
+
+.c-input:hover {
+  border-color: var(--input-hover-borderColor, var(--global-input-hover-borderColor));
+}
+
+.c-input:focus,
+.c-input:active {
+  border-color: black;
+  box-shadow: var(--global-input-focus-boxShadowSpread) rgba(0, 0, 0, 0.5);
+}
+
+/*
+Input password with toggle checkbox on top of it needs
+more padding on the right to avoid overlap
+*/
+
+.c-input--password-with-toggle {
+  padding-right: 52px;
+}
+
+/* input password with floating label */
+
+.c-input--with-floating-label:focus {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+/* option input for checkboxes and radio buttons */
+
+.c-option {
+  margin-right: var(--global-whitespace-sm);
+}
+
+/*
+    Component: Label
+    ---
+    Class to put on all form labels
+*/
+
+.c-label {
+  margin-bottom: 0;
+  font-size: 14px;
+  padding-bottom: var(--global-whitespace-sm);
+  line-height: calc(var(--global-baseline) * 2);
+  color: white;
+  font-family: 'Montserrat', Helvetica, arial, sans-serif;
+}
+
+.c-label--option {
+  padding-bottom: 0;
+}
+
+.c-label__error-message {
+  font-weight: 600;
+  float: right;
+  display: var(--error-message-display, none);
+}
+
+.c-label--floating {
+  position: absolute;
+  top: calc(var(--global-baseline) * 2);
+  left: var(--global-whitespace-sm);
+  padding: 0 var(--global-whitespace-sm);
+  background-color: transparent;
+  transition: transform var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+  z-index: 1;
+}
+
+.is-floating,
+.c-form-field:focus-within .c-label--floating {
+  transform: translateY(calc(var(--global-baseline) * -3));
+}
+
+@media (prefers-color-scheme: dark) {
+  .c-label--floating {
+    --label--floating-backgroundColor: transparent;
+  }
+}
+
+/*
+    Component: Button
+    ---
+    Class to put on form buttons or
+*/
+
+.c-button {
+  cursor: pointer;
+
+  font-weight: 400;
+
+  height: var(--global-whitespace-xl);
+
+  border: none;
+  outline: none;
+  border-radius: 8px;
+
+  background-color: rgba(12, 12, 12, 0.9);
+  color: #fff;
+
+  padding: calc(var(--global-baseline) * 1.5 - var(--button-borderWidth, var(--global-borderWidth))) var(--global-whitespace-md);
+
+  line-height: calc(var(--global-baseline) * 3);
+
+  width: 100%;
+
+  transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
+
+  margin-bottom: var(--global-whitespace-xl);
+}
+
+.c-button:hover {
+  background-color: rgba(30, 30, 30, 0.9);
+}
+
+.c-button:focus {
+  background-color: rgba(5, 5, 5, 0.9);
+}
+
+.c-button:active {
+  background-color: black;
+}
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: color
+    ---
+    Utility classes to put specific colors onto elements
+*/
+
+.u-color-neutral-base {
+  color: Silver;
+}
+
+.u-color-neutral-dark {
+  color: Black;
+}
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+  padding-top: 0 !important;
+}
+
+.u-mb-clear {
+  margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+  margin-bottom: 4px !important;
+}
+
+.u-mb-sm {
+  margin-bottom: 8px !important;
+}
+
+.u-mb-md {
+  margin-bottom: 16px !important;
+}
+
+.u-mb-lg {
+  margin-bottom: 32px !important;
+}
+
+.u-mb-xl {
+  margin-bottom: 48px !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+  max-width: 27em !important;
+}
+
+.u-max-width-sm {
+  max-width: 39em !important;
+}
+
+.u-max-width-md {
+  max-width: 50em !important;
+}
+
+.u-max-width-lg {
+  max-width: 63.5em !important;
+}
+
+.u-max-width-none {
+  max-width: none !important;
+}
+
+/*
+    Utilities: align
+    ---
+    Utility classes align text or components
+*/
+
+.u-text-align-center {
+  text-align: center;
+}
+
+.u-align-center {
+  margin: 0 auto;
+}
+
+/*
+    Utilities: text
+    Utility classes to create smaller or bigger test
+*/
+
+.u-text-sm {
+  font-size: 14px;
+}
+
+/*
+    Utility: Widths
+    ---
+    Utility classes to put specific widths onto elements
+    Will be mostly used on o-layout__item
+*/
+
+.u-width-auto {
+  width: auto !important;
+}
+
+.u-1-of-2 {
+  width: 50% !important;
+}
+
+.u-1-of-3 {
+  width: 33.3333333333% !important;
+}
+
+.u-2-of-3 {
+  width: 66.6666666667% !important;
+}
+
+.u-1-of-4 {
+  width: 25% !important;
+}
+
+.u-3-of-4 {
+  width: 75% !important;
+}
+
+.u-1-of-5 {
+  width: 20% !important;
+}
+
+.u-2-of-5 {
+  width: 40% !important;
+}
+
+.u-3-of-5 {
+  width: 60% !important;
+}
+
+.u-4-of-5 {
+  width: 80% !important;
+}
+
+.u-1-of-6 {
+  width: 16.6666666667% !important;
+}
+
+.u-5-of-6 {
+  width: 83.3333333333% !important;
+}
+
+@media (min-width: 576px) {
+  .u-1-of-2-bp1 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp1 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp1 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp1 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp1 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp1 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp1 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp1 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp1 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp1 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp1 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .u-1-of-2-bp2 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp2 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp2 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp2 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp2 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp2 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp2 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp2 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp2 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp2 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp2 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .u-1-of-2-bp3 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp3 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp3 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp3 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp3 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp3 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp3 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp3 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp3 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp3 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp3 {
+    width: 83.3333333333% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .u-1-of-2-bp4 {
+    width: 50% !important;
+  }
+  .u-1-of-3-bp4 {
+    width: 33.3333333333% !important;
+  }
+  .u-2-of-3-bp4 {
+    width: 66.6666666667% !important;
+  }
+  .u-1-of-4-bp4 {
+    width: 25% !important;
+  }
+  .u-3-of-4-bp4 {
+    width: 75% !important;
+  }
+  .u-1-of-5-bp4 {
+    width: 20% !important;
+  }
+  .u-2-of-5-bp4 {
+    width: 40% !important;
+  }
+  .u-3-of-5-bp4 {
+    width: 60% !important;
+  }
+  .u-4-of-5-bp4 {
+    width: 80% !important;
+  }
+  .u-1-of-6-bp4 {
+    width: 16.6666666667% !important;
+  }
+  .u-5-of-6-bp4 {
+    width: 83.3333333333% !important;
+  }
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Media Queries
+    ---
+    EXAMPLE Media Queries for Responsive Design.
+    These examples override the primary ('mobile first') styles.
+    USE THEM INLINE!
+*/
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in mobile first design
+*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

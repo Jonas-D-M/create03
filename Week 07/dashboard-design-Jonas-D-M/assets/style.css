@@ -1,0 +1,28 @@
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ==========================================
+Single-colored icons can be modified like so:
+.c-name {
+  font-size: 32px;
+  color: red;
+}
+========================================== */
+
+.c-icon_attached {
+  width: 0.99609375em;
+}
+
+.c-icon_star {
+  width: 0.998046875em;
+}
+
+.c-icon_star-1 {
+  width: 0.998046875em;
+}
